@@ -9,7 +9,7 @@ Gustavo Reis Teixeira R.A:
 
 ---
 
-## 📋 Descrição
+## Descrição
 
 Sistema de controle de acesso para um compartimento seguro, implementado com Arduino Uno. O usuário insere uma senha de 4 dígitos por meio de botões físicos; o sistema valida a entrada, controla uma tranca via servomotor e fornece feedback visual (LCD e LEDs) e sonoro (buzzer). Após 3 tentativas incorretas, o cofre entra em modo de alerta com alarme contínuo.
 
@@ -32,7 +32,7 @@ Sistema de controle de acesso para um compartimento seguro, implementado com Ard
 
 ---
 
-## 🔌 Mapeamento de Pinos
+## Mapeamento de Pinos
 
 | Pino Arduino | Componente | Descrição |
 |---|---|---|
