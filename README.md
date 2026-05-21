@@ -1,6 +1,6 @@
 # 🔐 Projeto de Cofre Eletrônico
 
-Inegrantes:
+Integrantes:
 Daniel Barroso de Oliveira R.A: 22.124.054-2
 
 Kaio Lopes Custódio da Silva R.A:
@@ -150,8 +150,3 @@ Estado: ALERTA!
 ```
 
 ---
-
-## 👥 Autores
-
-Projeto desenvolvido para a disciplina CCM520 – Internet das Coisas  
-Centro Universitário FEI – 2026
