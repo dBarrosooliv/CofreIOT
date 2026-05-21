@@ -1,7 +1,9 @@
-# 🔐 Cofre Inteligente com Feedback Multissensorial
+# 🔐 Projeto de Cofre Eletrônico
 
-Projeto final da disciplina **CCM520 – Internet das Coisas**  
-Centro Universitário FEI – 1º Semestre de 2026
+Inegrantes:
+Daniel Barroso de Oliveira R.A: 22.124.054-2
+Kaio Lopes Custódio da Silva R.A:
+Gustavo Reis Teixeira R.A:
 
 ---
 
