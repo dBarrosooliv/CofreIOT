@@ -15,21 +15,20 @@ Sistema de controle de acesso para um compartimento seguro, implementado com Ard
 
 ---
 
-## 🧰 Hardware Utilizado
+## Hardware Utilizado
 
-| Componente | Quantidade | Função |
-|---|---|---|
-| Arduino Uno | 1 | Microcontrolador principal |
-| Display LCD 16x2 | 1 | Interface visual com o usuário |
-| Servomotor | 1 | Tranca mecânica da porta |
-| Buzzer | 1 | Feedback sonoro (teclas, erro, acerto, alarme) |
-| LED Vermelho | 3 | Indicadores de tentativas erradas (A0, A1, A2) |
-| LED Verde | 1 | Indicador de acesso liberado (A4) |
-| Botão (Push Button) | 5 | Entrada da senha (dígitos 1–4) + Reset |
-| Resistores 1kΩ | 6 | Limitadores de corrente dos LEDs |
-| Potenciômetro 250kΩ | 1 | Ajuste de contraste do LCD |
-| Sensor Infravermelho | 1 | Monitoramento do estado físico da porta (A5) |
-| Protoboard + Jumpers | — | Montagem do circuito |
+| Nome | Quantidade | Componente |
+| :--- | :---: | :--- |
+| U1 | 1 | Arduino Uno R3 |
+| U2 | 1 | LCD 16 x 2 |
+| Rpot1 | 1 | 250 kΩ Potenciômetro |
+| S1<br>S2<br>S3<br>S5<br>S4 | 5 | Botão |
+| D1<br>D2<br>D3 | 3 | Vermelho LED |
+| R6<br>R7<br>R8<br>R1<br>R2 | 5 | 1 kΩ Resistor |
+| PIEZO1 | 1 | Piezo |
+| SERVO1 | 1 | Posicional Micro servo |
+| D4 | 1 | Verde LED |
+| U3 | 1 | Sensor de infravermelho |
 
 ---
 
@@ -55,7 +54,7 @@ Sistema de controle de acesso para um compartimento seguro, implementado com Ard
 
 ---
 
-## ⚙️ Funcionalidades Implementadas
+## Funcionalidades 
 
 ### Entrada de Senha
 - 4 botões físicos representam os dígitos 1, 2, 3 e 4
@@ -77,11 +76,6 @@ O sistema opera como uma **Máquina de Estados Finita (FSM)** com três estados:
 - **3º erro:** acende LED vermelho 3 (A2) e transita para estado de **ALERTA**
 - Em alerta: o LCD exibe `"ALERTA!"` e o buzzer dispara 10 ciclos de alarme bitonado
 
-### Monitoramento da Porta
-- O sensor infravermelho em A5 verifica se a porta está fisicamente aberta
-- O servo só destrava (`write(95)`) quando a senha está correta **e** o sensor confirma a abertura da porta
-- Enquanto a porta não for aberta, o display permanece em estado de espera
-
 ### Interrupções de Hardware
 - **Pino 2 (FALLING):** `resetar_cofre()` — zera erros, estados, LEDs e senha digitada instantaneamente
 - **Pino 3 (FALLING):** `dDois()` — registra o dígito 2 sem polling no `loop()`
@@ -97,55 +91,13 @@ O sistema opera como uma **Máquina de Estados Finita (FSM)** com três estados:
 
 ---
 
-## 🖥️ Interface do LCD
-
-**Linha 0 (status):**
-```
-Estado: fechado
-Estado: Aberto..
-Estado: ALERTA!
-```
-
-**Linha 1 (entrada da senha):**
-```
-< > < > < > < >
-```
-À medida que o usuário pressiona os botões, os `<` e `>` são substituídos pelos dígitos digitados nas colunas 1, 5, 9 e 13.
-
----
-
-## 🚀 Como Reproduzir
-
-### Requisitos
-- Arduino IDE 1.8+ ou 2.x
-- Bibliotecas: `LiquidCrystal` (nativa) e `Servo` (nativa)
-
-### Montagem
-1. Monte o circuito conforme o diagrama de conexão (`Cofre.pdf`)
-2. Conecte o Arduino ao computador via USB
-
-### Upload
-1. Abra o arquivo `cofre.ino` na Arduino IDE
-2. Selecione a placa **Arduino Uno** e a porta COM correta
-3. Clique em **Upload**
-
-### Uso
-1. Ao iniciar, o LCD exibe `"Estado: fechado"`
-2. Pressione os 4 botões na sequência correta: **4 → 2 → 2 → 3**
-3. Se a senha estiver correta, o servo destrava e o LED verde acende
-4. Pressione o botão de **Reset** (pino 2) a qualquer momento para reiniciar o sistema
-
-> ⚠️ A senha padrão é `4 2 2 3`. Para alterá-la, modifique o array `senha[4]` no código-fonte.
-
----
-
 ## 📁 Estrutura do Repositório
 
 ```
 /
 ├── cofre.ino          # Código-fonte principal (comentado)
-├── Cofre.pdf          # Diagrama de conexão do circuito (Tinkercad)
-├── relatorio.docx     # Relatório técnico completo
+├── Mapeamento do Circuito.pdf          # Diagrama de conexão do circuito (Tinkercad)
+├── cofre.cpp          # Código completo comentado
 └── README.md          # Este arquivo
 ```
 
