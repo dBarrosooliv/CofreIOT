@@ -98,7 +98,9 @@ O sistema opera como uma **Máquina de Estados Finita (FSM)** com três estados:
 ├── cofre.ino          # Código-fonte principal (comentado)
 ├── Mapeamento do Circuito.pdf          # Diagrama de conexão do circuito (Tinkercad)
 ├── cofre.cpp          # Código completo comentado
+├── cofreAberto.jpg          # Circuito montando
 └── README.md          # Este arquivo
 ```
 
 ---
+![Texto alternativo (opcional)](https://github.com/dBarrosooliv/CofreIOT/blob/main/cofreAberto.jpg)
