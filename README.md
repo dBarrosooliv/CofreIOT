@@ -2,7 +2,9 @@
 
 Inegrantes:
 Daniel Barroso de Oliveira R.A: 22.124.054-2
+
 Kaio Lopes Custódio da Silva R.A:
+
 Gustavo Reis Teixeira R.A:
 
 ---
